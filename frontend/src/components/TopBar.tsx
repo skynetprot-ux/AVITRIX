@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './TopBar.css';
 
-const TopBar: React.FC = () => {
+type TopBarProps = {
+  onToggleSidebar: () => void;
+  isSidebarOpen: boolean;
+};
+
+const TopBar: React.FC<TopBarProps> = ({ onToggleSidebar, isSidebarOpen }) => {
   const navigate = useNavigate();
   const { isLoggedIn, user, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
@@ -67,6 +72,9 @@ const TopBar: React.FC = () => {
   return (
     <div className="top-bar">
       <div className="top-bar-left">
+        <button className="mobile-menu-button" onClick={onToggleSidebar}>
+          {isSidebarOpen ? 'Скрыть меню' : 'Меню'}
+        </button>
         <div className="logo" onClick={() => navigate('/')} style={{cursor: 'pointer'}}>
           <span className="logo-text">AVITRIX</span>
           <span className="logo-subtitle">Профессиональная аналитика объявлений</span>

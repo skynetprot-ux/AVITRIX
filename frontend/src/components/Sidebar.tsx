@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Sidebar.css";
 
-export default function Sidebar() {
+type SidebarProps = {
+  isMobileOpen: boolean;
+  onClose: () => void;
+};
+
+export default function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -71,10 +76,13 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isMobileOpen ? "mobile-open" : ""}`}>
       <div className="sidebar-header">
         <div className="sidebar-title">МЕНЮ</div>
         <div className="sidebar-subtitle">Управление и аналитика</div>
+        <button className="sidebar-close" onClick={onClose}>
+          Закрыть
+        </button>
       </div>
 
       <div className="menu-container">
@@ -101,7 +109,10 @@ export default function Sidebar() {
                 <div
                   key={subItem.path}
                   className={`submenu-item ${isActive(subItem.path) ? "active" : ""}`}
-                  onClick={() => navigate(subItem.path)}
+                  onClick={() => {
+                    navigate(subItem.path);
+                    onClose();
+                  }}
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   <div className="submenu-dot"></div>
@@ -116,7 +127,10 @@ export default function Sidebar() {
           <div
             key={item.path}
             className={`menu-item single-item ${isActive(item.path) ? "active-main" : ''}`}
-            onClick={() => navigate(item.path)}
+            onClick={() => {
+              navigate(item.path);
+              onClose();
+            }}
           >
             <div className="menu-item-content">
               <span className="menu-text">{item.title}</span>
