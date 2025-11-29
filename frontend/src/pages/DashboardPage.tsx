@@ -19,10 +19,10 @@ export default function DashboardPage() {
 
         <div className="hero-buttons">
           <button className="btn primary pulse" onClick={() => window.location.href = '/ai'}>
-            🚀 Начать оптимизацию
+            Начать оптимизацию
           </button>
           <button className="btn secondary" onClick={() => window.location.href = '/analytics'}>
-            📊 Смотреть аналитику
+            Смотреть аналитику
           </button>
         </div>
 
@@ -51,10 +51,10 @@ export default function DashboardPage() {
         <h2>Возможности AVITRIX</h2>
         <div className="features-grid">
           <div className="feature-card fade-in delay-1">
-            <div className="feature-icon">🚀</div>
+            <div className="feature-icon">AI</div>
             <h3>AI Autopilot</h3>
             <p>Мгновенно улучшайте объявления с помощью искусственного интеллекта</p>
-            <button 
+            <button
               className="btn outline"
               onClick={() => window.location.href = '/ai'}
             >
@@ -63,7 +63,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="feature-card fade-in delay-2">
-            <div className="feature-icon">🖼️</div>
+            <div className="feature-icon">HD</div>
             <h3>Photo Enhancer</h3>
             <p>Анализ и улучшение фотографий для максимального CTR</p>
             <button 
@@ -75,7 +75,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="feature-card fade-in delay-3">
-            <div className="feature-icon">📈</div>
+            <div className="feature-icon">CTR</div>
             <h3>CTR Boost</h3>
             <p>Увеличивайте кликабельность объявлений на основе данных</p>
             <button 
@@ -87,7 +87,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="feature-card fade-in delay-4">
-            <div className="feature-icon">🎯</div>
+            <div className="feature-icon">PRO</div>
             <h3>Анализ конкурентов</h3>
             <p>Изучайте стратегии конкурентов и обходите их</p>
             <button 
@@ -105,7 +105,7 @@ export default function DashboardPage() {
         <h2>Последняя активность</h2>
         <div className="activity-list">
           <div className="activity-item">
-            <div className="activity-icon">✅</div>
+            <div className="activity-icon">OK</div>
             <div className="activity-content">
               <p>Объявление "iPhone 13 Pro" оптимизировано</p>
               <span className="activity-time">2 часа назад</span>
@@ -113,7 +113,7 @@ export default function DashboardPage() {
             <div className="activity-ctr">+12% CTR</div>
           </div>
           <div className="activity-item">
-            <div className="activity-icon">📸</div>
+            <div className="activity-icon">HQ</div>
             <div className="activity-content">
               <p>Фотографии для "Квартира в центре" улучшены</p>
               <span className="activity-time">5 часов назад</span>
@@ -121,7 +121,7 @@ export default function DashboardPage() {
             <div className="activity-ctr">+8% просмотров</div>
           </div>
           <div className="activity-item">
-            <div className="activity-icon">🔍</div>
+            <div className="activity-icon">R&D</div>
             <div className="activity-content">
               <p>Проанализированы 15 конкурентов в категории "Электроника"</p>
               <span className="activity-time">Вчера</span>

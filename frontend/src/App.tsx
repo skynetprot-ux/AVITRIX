@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
@@ -26,10 +26,27 @@ import SubscriptionPage from './pages/SubscriptionPage'
 import './App.css'
 
 function App() {
+  const [isSidebarOpen, setSidebarOpen] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setSidebarOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div className="app">
-      <TopBar />
-      <Sidebar />
+      <TopBar
+        onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)}
+        isSidebarOpen={isSidebarOpen}
+      />
+      <Sidebar isMobileOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
+      {isSidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />}
       <div className="main-content">
         <Routes>
           {/* Основные маршруты */}

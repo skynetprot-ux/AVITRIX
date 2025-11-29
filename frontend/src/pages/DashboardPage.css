@@ -177,8 +177,19 @@
 }
 
 .feature-icon {
-  font-size: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3c7bff, #1ba1f1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
 .feature-card h3 {
@@ -233,8 +244,18 @@
 }
 
 .activity-icon {
-  font-size: 24px;
+  font-size: 12px;
+  font-weight: 700;
   flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(60, 123, 255, 0.2);
+  color: #dfe8ff;
+  border: 1px solid rgba(60, 123, 255, 0.4);
 }
 
 .activity-content {
