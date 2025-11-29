@@ -1,0 +1,36 @@
+.bulk-editor-page {
+  padding: 20px;
+}
+
+.page-header h1 {
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+.page-header p {
+  color: #b9c6ff;
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+.content-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 60px 40px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.content-placeholder h2 {
+  color: #ffffff;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.content-placeholder p {
+  color: #b9c6ff;
+  opacity: 0.7;
+  font-size: 1rem;
+}

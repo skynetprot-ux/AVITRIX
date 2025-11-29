@@ -1,0 +1,376 @@
+/* =====================================================
+   SIDEBAR MAIN STYLES
+   ===================================================== */
+
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #0a1a3a 0%, #07122e 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 25px 0;
+  height: calc(100vh - 78px); /* Вычитаем высоту топбара */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 78px; /* Начинаем сразу под топбаром */
+  z-index: 998; /* Ниже топбара */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   SIDEBAR HEADER
+   ===================================================== */
+
+.sidebar-header {
+  padding: 0 24px 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 15px;
+}
+
+.sidebar-title {
+  color: #b9c6ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.sidebar-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* =====================================================
+   MENU CONTAINER
+   ===================================================== */
+
+.menu-container {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.menu-section {
+  margin-bottom: 4px;
+}
+
+/* =====================================================
+   MENU ITEMS
+   ===================================================== */
+
+.menu-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #e8ecff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.menu-item:hover::before {
+  left: 100%;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.menu-item.open {
+  background: rgba(60, 123, 255, 0.15);
+  border-color: rgba(60, 123, 255, 0.3);
+}
+
+.menu-item.active-main {
+  background: rgba(60, 123, 255, 0.2);
+  border-color: rgba(60, 123, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(60, 123, 255, 0.15);
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.menu-text {
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.menu-arrow {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(-90deg);
+}
+
+.menu-arrow.rotated {
+  transform: rotate(0deg);
+  color: #3c7bff;
+}
+
+/* =====================================================
+   SUBMENU ANIMATIONS
+   ===================================================== */
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  margin-left: 12px;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.submenu::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(60, 123, 255, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submenu-open {
+  max-height: 500px;
+}
+
+.submenu-open::before {
+  opacity: 1;
+}
+
+.submenu-item {
+  padding: 12px 16px 12px 28px;
+  font-size: 14px;
+  border-radius: 8px;
+  color: #cdd4ff;
+  cursor: pointer;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideInSubmenu 0.3s ease forwards;
+}
+
+@keyframes slideInSubmenu {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.submenu-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.submenu-item.active {
+  background: rgba(60, 123, 255, 0.15);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(60, 123, 255, 0.2);
+}
+
+.submenu-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.submenu-item:hover .submenu-dot {
+  background: #3c7bff;
+  transform: scale(1.2);
+}
+
+.submenu-item.active .submenu-dot {
+  background: #3c7bff;
+  transform: scale(1.5);
+  box-shadow: 0 0 6px rgba(60, 123, 255, 0.6);
+}
+
+.submenu-text {
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+
+/* =====================================================
+   SINGLE ITEMS (без подменю)
+   ===================================================== */
+
+.menu-item.single-item {
+  margin-bottom: 8px;
+}
+
+/* =====================================================
+   SCROLLBAR STYLING
+   ===================================================== */
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(60, 123, 255, 0.3);
+  border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(60, 123, 255, 0.5);
+}
+
+/* =====================================================
+   GLOW EFFECTS
+   ===================================================== */
+
+.menu-item.open::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(60, 123, 255, 0.1), transparent);
+  animation: glowPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* =====================================================
+   ACTIVE STATE ENHANCEMENTS
+   ===================================================== */
+
+.submenu-item.active .submenu-text {
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* =====================================================
+   ADAPTIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 1366px) {
+  .sidebar {
+    width: 260px;
+    padding: 20px 0;
+  }
+  
+  .menu-item {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .submenu-item {
+    padding: 10px 14px 10px 26px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+  
+  .sidebar-header {
+    padding: 0 20px 15px 20px;
+  }
+  
+  .menu-container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    width: 280px;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    height: calc(100vh - 70px);
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .sidebar-subtitle {
+    display: none;
+  }
+}
+
+/* =====================================================
+   MAIN CONTENT ADJUSTMENT
+   ===================================================== */
+
+.main-content {
+  margin-left: 280px;
+  padding: 20px;
+  min-height: calc(100vh - 78px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1366px) {
+  .main-content {
+    margin-left: 260px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}

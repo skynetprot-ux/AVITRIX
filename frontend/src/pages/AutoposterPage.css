@@ -1,0 +1,419 @@
+.autoposter-page {
+  padding: 20px;
+  min-height: 100vh;
+  background: #0a1429;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.autoposter-header {
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+
+.autoposter-header h1 {
+  color: #00ff88;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.autoposter-header p {
+  color: #a0aec0;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.autoposter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
+}
+
+/* Общие стили для секций */
+.settings-section,
+.templates-section,
+.stats-section {
+  background: linear-gradient(145deg, #1a2b4a, #0a1a3a);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settings-section h2,
+.templates-section h2,
+.stats-section h2 {
+  color: #00ccff;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Настройки автоматизации */
+.settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.setting-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.setting-item:hover {
+  border-color: #3c7bff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.setting-checkbox {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  margin: 0;
+  gap: 12px;
+}
+
+.setting-checkbox input {
+  display: none;
+}
+
+.setting-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #3c7bff;
+  border-radius: 4px;
+  margin-top: 2px;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.setting-checkbox input:checked + .checkmark {
+  background: #3c7bff;
+  border-color: #3c7bff;
+}
+
+.setting-checkbox input:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.setting-content {
+  flex: 1;
+}
+
+.setting-content strong {
+  display: block;
+  color: white;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.setting-content span {
+  color: #a0aec0;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.setting-controls {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  color: white;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.number-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: white;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.number-input:focus {
+  outline: none;
+  border-color: #3c7bff;
+}
+
+/* Шаблоны кампаний */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.templates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.template-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.template-card.active {
+  border-color: #00ff88;
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.template-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.template-info h3 {
+  color: white;
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.template-details {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.template-category, .template-ads {
+  color: #a0aec0;
+  font-size: 13px;
+}
+
+.template-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Статистика */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.stat-card:hover {
+  border-color: #3c7bff;
+}
+
+.stat-value {
+  color: #00ff88;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.stat-label {
+  color: #a0aec0;
+  font-size: 13px;
+}
+
+/* Кнопки */
+.btn-primary, .btn-secondary {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3c7bff, #00ccff);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2a5fd4, #00a3cc);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+  padding: 7px 15px;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 255, 136, 0.1);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: .2s;
+  border-radius: 20px;
+}
+
+.toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: #00ff88;
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+  .autoposter-page {
+    padding: 30px;
+  }
+  
+  .autoposter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+  }
+  
+  .settings-section,
+  .templates-section,
+  .stats-section {
+    padding: 25px;
+    border-radius: 12px;
+  }
+  
+  .autoposter-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .autoposter-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .settings-section,
+  .templates-section,
+  .stats-section {
+    padding: 30px;
+    border-radius: 16px;
+  }
+  
+  .autoposter-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .template-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .template-details {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .autoposter-page {
+    padding: 15px;
+  }
+  
+  .settings-section,
+  .templates-section,
+  .stats-section {
+    padding: 15px;
+  }
+}

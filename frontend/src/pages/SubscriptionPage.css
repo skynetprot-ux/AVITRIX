@@ -1,0 +1,136 @@
+.subscription-page {
+  padding: 30px;
+  min-height: calc(100vh - 78px);
+  background: #0a1429;
+}
+
+.subscription-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.subscription-header h1 {
+  color: #00ff88;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.subscription-header p {
+  color: #a0aec0;
+  font-size: 1.2rem;
+}
+
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  background: linear-gradient(145deg, #1a2b4a, #0a1a3a);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+.plan-card.popular {
+  border-color: #00ff88;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00ff88;
+  color: #0a1429;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.plan-card h3 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.price {
+  margin-bottom: 25px;
+}
+
+.amount {
+  color: #00ff88;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.period {
+  color: #a0aec0;
+  font-size: 1rem;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.features li {
+  color: white;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.select-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-button.primary {
+  background: #3c7bff;
+  color: white;
+}
+
+.select-button.primary:hover {
+  background: #2a65e8;
+}
+
+.select-button.secondary {
+  background: transparent;
+  color: #3c7bff;
+  border: 2px solid #3c7bff;
+}
+
+.select-button.secondary:hover {
+  background: rgba(60, 123, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .plans-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .subscription-header h1 {
+    font-size: 2rem;
+  }
+}
