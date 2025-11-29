@@ -1,26 +1,21 @@
-/* =====================================================
-   DASHBOARD PAGE LAYOUT
-   ===================================================== */
-
 .dashboard-page {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
-
-/* =====================================================
-   ANIMATIONS
-   ===================================================== */
 
 .fade-in {
   opacity: 0;
-  transform: translateY(15px);
+  transform: translateY(12px);
   animation: fadeIn 0.8s ease forwards;
 }
 
-.delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.25s; }
-.delay-3 { animation-delay: 0.35s; }
-.delay-4 { animation-delay: 0.45s; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
 
 @keyframes fadeIn {
   to {
@@ -29,93 +24,73 @@
   }
 }
 
-/* BUTTON PULSE EFFECT */
 .pulse {
   animation: pulseGlow 2.5s infinite ease-in-out;
 }
 
 @keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(80,140,255,0.3); }
-  50% { box-shadow: 0 0 22px rgba(80,140,255,0.6); }
-  100% { box-shadow: 0 0 10px rgba(80,140,255,0.3); }
+  0% { box-shadow: 0 0 8px rgba(80, 140, 255, 0.35); }
+  50% { box-shadow: 0 0 18px rgba(80, 140, 255, 0.55); }
+  100% { box-shadow: 0 0 8px rgba(80, 140, 255, 0.35); }
 }
-
-/* =====================================================
-   HERO SECTION
-   ===================================================== */
 
 .dashboard-hero {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 22px;
-  padding: 45px;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 12px 50px rgba(0,0,0,0.45);
-  transition: 0.35s ease;
-  position: relative;
-  margin-bottom: 50px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px 18px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
 }
 
-.dashboard-hero:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 65px rgba(0,0,0,0.5);
-}
-
-/* TITLE */
 .dashboard-title {
-  font-size: 42px;
+  font-size: 26px;
   font-weight: 800;
-  margin-bottom: 10px;
-  line-height: 1.1;
+  margin-bottom: 8px;
+  line-height: 1.15;
   background: linear-gradient(135deg, #ffffff 0%, #a0b8ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Underline Glow */
 .title-underline {
-  width: 80px;
+  width: 70px;
   height: 4px;
   border-radius: 4px;
   background: linear-gradient(90deg, #4b8aff, #7bb0ff);
-  box-shadow: 0 0 12px rgba(100,150,255,0.8);
-  margin: 8px 0 18px 0;
+  box-shadow: 0 0 10px rgba(100, 150, 255, 0.8);
+  margin: 6px 0 16px 0;
 }
 
 .hero-text {
-  opacity: 0.75;
-  font-size: 17px;
-  margin-bottom: 25px;
-  line-height: 1.45;
-  max-width: 600px;
+  opacity: 0.78;
+  font-size: 15px;
+  margin-bottom: 18px;
+  line-height: 1.5;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 16px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex-direction: column;
 }
 
-/* =====================================================
-   STATS SECTION
-   ===================================================== */
-
 .stat-row {
-  margin-top: 28px;
+  margin-top: 18px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .stat-item {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  padding: 16px;
+  padding: 14px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .stat-item:hover {
@@ -125,67 +100,58 @@
 
 .stat-label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .stat-value {
   display: block;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: #3c7bff;
 }
 
-/* =====================================================
-   FEATURES SECTION
-   ===================================================== */
-
-.features-section {
-  margin-bottom: 50px;
-}
-
-.features-section h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
+.features-section h2,
+.activity-section h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
   color: white;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 .feature-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 18px;
-  padding: 30px;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 8px 35px rgba(0,0,0,0.35);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 22px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
   transition: 0.3s ease;
   text-align: center;
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 55px rgba(0,0,0,0.45);
-  border-color: rgba(120,160,255,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.45);
 }
 
 .feature-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  margin-bottom: 16px;
-  font-size: 16px;
-  font-weight: 700;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 800;
   letter-spacing: 0.5px;
   color: #ffffff;
   background: linear-gradient(135deg, #3c7bff, #1ba1f1);
@@ -193,62 +159,46 @@
 }
 
 .feature-card h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: white;
 }
 
 .feature-card p {
-  opacity: 0.7;
-  font-size: 15px;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-/* =====================================================
-   ACTIVITY SECTION
-   ===================================================== */
-
-.activity-section {
-  margin-bottom: 50px;
-}
-
-.activity-section h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: white;
+  opacity: 0.74;
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.45;
 }
 
 .activity-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .activity-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 12px;
-  padding: 20px;
+  padding: 16px;
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  gap: 10px;
   transition: all 0.3s ease;
 }
 
 .activity-item:hover {
-  background: rgba(255,255,255,0.05);
-  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 .activity-icon {
   font-size: 12px;
   font-weight: 700;
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
@@ -258,14 +208,10 @@
   border: 1px solid rgba(60, 123, 255, 0.4);
 }
 
-.activity-content {
-  flex: 1;
-}
-
 .activity-content p {
   color: white;
   margin-bottom: 4px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .activity-time {
@@ -274,26 +220,23 @@
 }
 
 .activity-ctr {
-  background: rgba(0, 210, 106, 0.2);
+  background: rgba(0, 210, 106, 0.18);
   color: #00d26a;
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 12px;
   font-size: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(0, 210, 106, 0.3);
+  font-weight: 700;
+  border: 1px solid rgba(0, 210, 106, 0.28);
+  align-self: flex-start;
 }
 
-/* =====================================================
-   BUTTONS
-   ===================================================== */
-
 .btn {
-  padding: 12px 24px;
-  border-radius: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   border: none;
   text-decoration: none;
   display: inline-block;
@@ -307,7 +250,7 @@
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(60, 123, 255, 0.4);
+  box-shadow: 0 8px 22px rgba(60, 123, 255, 0.35);
 }
 
 .btn.secondary {
@@ -317,7 +260,7 @@
 }
 
 .btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.18);
   transform: translateY(-2px);
 }
 
@@ -328,76 +271,68 @@
 }
 
 .btn.outline:hover {
-  background: rgba(60, 123, 255, 0.1);
+  background: rgba(60, 123, 255, 0.12);
   transform: translateY(-2px);
 }
 
-/* =====================================================
-   ADAPTIVE DESIGN
-   ===================================================== */
-
-@media (max-width: 1024px) {
-  .dashboard-title {
-    font-size: 36px;
-  }
-  
+@media (min-width: 480px) {
   .dashboard-hero {
-    padding: 35px;
+    padding: 26px 22px;
   }
-  
+
+  .hero-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 768px) {
-  .dashboard-title {
-    font-size: 28px;
-  }
-  
+@media (min-width: 768px) {
   .dashboard-hero {
-    padding: 25px;
+    padding: 32px;
   }
-  
-  .stat-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+
+  .dashboard-title {
+    font-size: 32px;
   }
-  
+
   .hero-text {
     font-size: 16px;
   }
-  
-  .hero-buttons {
-    flex-direction: column;
+
+  .stat-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  
+
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
   .activity-item {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .dashboard-title {
-    font-size: 24px;
+    font-size: 38px;
   }
-  
-  .dashboard-hero {
-    padding: 20px;
+
+  .features-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  
-  .stat-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .feature-card {
-    padding: 20px;
-  }
-  
-  .features-section h2,
-  .activity-section h2 {
-    font-size: 24px;
+
+  .hero-text {
+    max-width: 640px;
   }
 }

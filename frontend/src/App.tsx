@@ -27,10 +27,13 @@ import './App.css'
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024)
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      const isWide = window.innerWidth >= 1024
+      setIsDesktop(isWide)
+      if (isWide) {
         setSidebarOpen(false)
       }
     }
@@ -44,10 +47,11 @@ function App() {
       <TopBar
         onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)}
         isSidebarOpen={isSidebarOpen}
+        isDesktop={isDesktop}
       />
       <Sidebar isMobileOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
       {isSidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />}
-      <div className="main-content">
+      <div className={`main-content ${isDesktop ? 'desktop' : ''}`}>
         <Routes>
           {/* Основные маршруты */}
           <Route path="/" element={<DashboardPage />} />
