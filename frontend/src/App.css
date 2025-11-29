@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --topbar-height: 68px;
+  --sidebar-width: 280px;
+}
+
 .app {
   min-height: 100vh;
   background-color: #07122e;
@@ -12,44 +17,44 @@
 }
 
 .main-content {
-  margin-left: 280px;
-  margin-top: 78px;
-  padding: 30px;
-  min-height: calc(100vh - 78px);
-  width: calc(100% - 280px);
+  width: 100%;
+  padding: 16px;
+  margin-top: var(--topbar-height);
+  min-height: calc(100vh - var(--topbar-height));
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.main-content.desktop {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
 }
 
 .sidebar-overlay {
   position: fixed;
-  inset: 78px 0 0 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: var(--topbar-height) 0 0 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
   z-index: 997;
-  display: none;
 }
 
-/* Убираем ограничения по максимальной ширине для полноэкранного вида */
-.main-content > * {
-  max-width: none !important;
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
+@media (min-width: 480px) {
   .main-content {
-    margin-left: 0;
-    margin-top: 60px;
-    padding: 20px;
-    width: 100%;
+    padding: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --topbar-height: 76px;
   }
 
+  .main-content {
+    padding: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
   .sidebar-overlay {
-    display: block;
-    inset: 70px 0 0 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-content {
-    margin-top: 50px;
-    padding: 15px;
+    display: none;
   }
 }
